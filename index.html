@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deecrown Kitchen And Confectionery | Where Every Bite Is A Delight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B2A5E;
+    --navy-deep:#121F45;
+    --powder:#AFC8E0;
+    --powder-light:#EAF1F8;
+    --cream:#FAF6EF;
+    --gold:#D4A24C;
+    --gold-deep:#B8863B;
+    --white:#FFFFFF;
+    --text:#22314F;
+    --text-soft:#5A6785;
+    --shadow: 0 20px 50px -20px rgba(27,42,94,0.25);
+    --radius: 22px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,.display{
+    font-family:'Fraunces', serif;
+    color:var(--navy-deep);
+    line-height:1.15;
+  }
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+  section{position:relative;}
+  .container{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 6vw;
+  }
+  .eyebrow{
+    font-family:'Inter', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.22em;
+    font-size:0.72rem;
+    color:var(--gold-deep);
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px; height:1px;
+    background:var(--gold-deep);
+    display:inline-block;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:16px 32px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:0.95rem;
+    border:2px solid transparent;
+    cursor:pointer;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, background .3s ease, color .3s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--gold);
+    color:var(--navy-deep);
+    box-shadow: 0 12px 28px -10px rgba(212,162,76,0.55);
+  }
+  .btn-primary:hover{ transform:translateY(-3px); box-shadow: 0 18px 34px -10px rgba(212,162,76,0.65); }
+  .btn-outline{
+    background:transparent;
+    color:var(--cream);
+    border-color:rgba(250,246,239,0.55);
+  }
+  .btn-outline:hover{ background:rgba(250,246,239,0.12); transform:translateY(-3px); border-color:var(--cream); }
+  .btn-outline-dark{
+    background:transparent;
+    color:var(--navy-deep);
+    border-color:var(--navy-deep);
+  }
+  .btn-outline-dark:hover{ background:var(--navy-deep); color:var(--cream); transform:translateY(-3px); }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    background:rgba(250,246,239,0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom:1px solid rgba(27,42,94,0.08);
+    transition: box-shadow .3s ease;
+  }
+  header.scrolled{ box-shadow: 0 8px 30px -18px rgba(27,42,94,0.35); }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 6vw;
+    max-width:1180px; margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:center; gap:12px;
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem;
+    color:var(--navy-deep);
+  }
+  .brand-mark{
+    width:42px; height:42px; border-radius:50%;
+    border:2.5px solid var(--navy);
+    display:flex; align-items:center; justify-content:center;
+    background:var(--powder-light);
+    flex-shrink:0;
+  }
+  .brand-mark svg{width:20px; height:20px;}
+  .nav-links{
+    display:flex; align-items:center; gap:34px;
+    font-size:0.92rem; font-weight:600; color:var(--text);
+  }
+  .nav-links a{ position:relative; padding:4px 0; }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px;
+    background:var(--gold); transition:width .3s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{ display:flex; align-items:center; gap:16px; }
+  .nav-cta .btn{ padding:11px 22px; font-size:0.85rem; }
+  .burger{
+    display:none; flex-direction:column; gap:5px; cursor:pointer;
+    width:28px; z-index:1100;
+  }
+  .burger span{ height:2px; width:100%; background:var(--navy-deep); border-radius:2px; transition:all .3s ease; }
+  .burger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2){ opacity:0; }
+  .burger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu{
+    position:fixed; top:0; right:-100%; width:78%; max-width:340px; height:100vh;
+    background:var(--navy-deep); z-index:1050;
+    padding:100px 34px 40px;
+    transition:right .45s cubic-bezier(.2,.8,.2,1);
+    display:flex; flex-direction:column; gap:26px;
+  }
+  .mobile-menu.open{ right:0; }
+  .mobile-menu a{ color:var(--powder-light); font-size:1.05rem; font-weight:600; font-family:'Fraunces',serif; }
+  .mobile-menu .btn{ margin-top:12px; width:100%; }
+  .menu-overlay{
+    position:fixed; inset:0; background:rgba(18,31,69,0.45); z-index:1040;
+    opacity:0; pointer-events:none; transition:opacity .4s ease;
+  }
+  .menu-overlay.open{ opacity:1; pointer-events:auto; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:170px 6vw 110px;
+    background:
+      radial-gradient(circle at 85% 10%, rgba(175,200,224,0.55), transparent 55%),
+      radial-gradient(circle at 8% 90%, rgba(212,162,76,0.18), transparent 45%),
+      var(--cream);
+    display:flex; align-items:center; justify-content:space-between; gap:60px;
+    max-width:1180px; margin:0 auto;
+    overflow:hidden;
+  }
+  .hero-text{ max-width:560px; flex-shrink:0; }
+  .hero-text .eyebrow{ margin-bottom:22px; }
+  .hero-text h1{
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    font-weight:600;
+    margin-bottom:20px;
+  }
+  .hero-text h1 em{
+    font-style:italic; color:var(--gold-deep); font-weight:500;
+  }
+  .hero-text p{
+    font-size:1.05rem; color:var(--text-soft); margin-bottom:34px; max-width:460px;
+  }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; }
+  .hero-visual{
+    position:relative; width:400px; height:400px; flex-shrink:0;
+  }
+  .ring{
+    position:absolute; border-radius:50%; border:3px solid var(--navy);
+  }
+  .ring-1{ inset:0; }
+  .ring-2{ inset:34px; border-color:var(--gold); border-width:2px; border-style:dashed; animation:spin 40s linear infinite; }
+  .ring-3{ inset:70px; background:var(--powder-light); border:none; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow); overflow:hidden;}
+  .ring-3 .icon-lg{ width:46%; height:46%; color:var(--navy); }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  .hero-badge{
+    position:absolute; bottom:6px; left:-18px;
+    background:var(--white); border-radius:100px;
+    padding:12px 20px; box-shadow:var(--shadow);
+    display:flex; align-items:center; gap:10px;
+    font-size:0.82rem; font-weight:700; color:var(--navy-deep);
+    animation:float 5s ease-in-out infinite;
+  }
+  .hero-badge svg{ width:20px; height:20px; color:var(--gold-deep); }
+  @keyframes float{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform:translateY(34px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* section shared */
+  .section{ padding:100px 0; }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+  .section-head h2{ font-size:clamp(1.9rem,3.6vw,2.6rem); margin-top:16px; font-weight:600; }
+  .section-head p{ color:var(--text-soft); margin-top:16px; font-size:1.02rem; }
+
+  .scallop-divider{
+    height:34px; width:100%;
+    background-image: radial-gradient(circle at 10px 0, transparent 12px, var(--cream) 13px);
+    background-size: 24px 24px;
+    background-repeat: repeat-x;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-wrap{ display:flex; gap:70px; align-items:center; }
+  .about-visual{
+    flex-shrink:0; width:320px; height:380px; position:relative;
+  }
+  .about-frame{
+    width:100%; height:100%; border-radius:50% 50% 46% 46% / 55% 55% 45% 45%;
+    border:3px solid var(--navy); padding:14px;
+  }
+  .about-frame-inner{
+    width:100%; height:100%; border-radius:50% 50% 46% 46% / 55% 55% 45% 45%;
+    background:repeating-linear-gradient(135deg, var(--powder-light), var(--powder-light) 12px, #DEEBF5 12px, #DEEBF5 24px);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--navy);
+    gap:10px; text-align:center; padding:0 20px;
+    position:relative; overflow:hidden;
+  }
+  .about-frame-inner img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center top;
+  }
+  .about-frame-inner svg{ width:26%; height:26%; opacity:.55; }
+  .about-frame-inner span{
+    font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+    color:var(--navy); opacity:.6;
+  }
+  .about-text h2{ margin-bottom:20px; }
+  .about-text p{ color:var(--text-soft); margin-bottom:16px; line-height:1.75; }
+  .about-stats{ display:flex; gap:40px; margin-top:32px; }
+  .about-stats div{ }
+  .about-stats strong{ font-family:'Fraunces',serif; font-size:1.8rem; color:var(--navy-deep); display:block; }
+  .about-stats span{ font-size:0.82rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:.06em; }
+
+  /* ---------- PRODUCTS ---------- */
+  .products-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:30px;
+  }
+  .product-card{
+    background:var(--white); border-radius:var(--radius); overflow:hidden;
+    box-shadow:0 14px 34px -18px rgba(27,42,94,0.25);
+    transition:transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+  }
+  .product-card:hover{ transform:translateY(-8px); box-shadow:0 22px 44px -16px rgba(27,42,94,0.32); }
+  .product-photo{
+    height:220px; background:
+      repeating-linear-gradient(135deg, var(--powder-light), var(--powder-light) 12px, #DEEBF5 12px, #DEEBF5 24px);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:10px; color:var(--navy); border-bottom:2px dashed var(--powder);
+    position:relative; overflow:hidden;
+  }
+  .product-photo img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center;
+  }
+  .product-photo svg{ width:34px; height:34px; opacity:.55; }
+  .product-photo span{
+    font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--navy); opacity:.6; text-align:center; padding:0 16px;
+  }
+  .product-body{ padding:22px 24px 26px; }
+  .product-body h4{ font-size:1.15rem; margin-bottom:6px; }
+  .product-body p{ color:var(--text-soft); font-size:0.9rem; margin-bottom:14px; line-height:1.5; }
+  .product-meta{ display:flex; align-items:center; justify-content:space-between; }
+  .product-price{ font-family:'Fraunces',serif; font-weight:600; color:var(--gold-deep); font-size:1.05rem; }
+  .tag{
+    font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+    background:var(--powder-light); color:var(--navy); padding:5px 11px; border-radius:100px;
+  }
+
+  /* ---------- CLASSES ---------- */
+  .classes-section{ background:var(--navy-deep); color:var(--cream); }
+  .classes-section .section-head p{ color:rgba(250,246,239,0.7); }
+  .classes-section .eyebrow{ color:var(--gold); }
+  .classes-section .eyebrow::before{ background:var(--gold); }
+  .classes-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:26px; }
+  .class-card{
+    background:rgba(250,246,239,0.06);
+    border:1px solid rgba(250,246,239,0.14);
+    border-radius:var(--radius);
+    padding:32px;
+    transition:transform .4s ease, background .4s ease;
+  }
+  .class-card:hover{ transform:translateY(-6px); background:rgba(250,246,239,0.1); }
+  .class-icon{
+    width:54px; height:54px; border-radius:50%; border:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; margin-bottom:20px;
+  }
+  .class-icon svg{ width:26px; height:26px; color:var(--gold); }
+  .class-card h4{ color:var(--cream); font-size:1.2rem; margin-bottom:10px; }
+  .class-card p{ color:rgba(250,246,239,0.68); font-size:0.92rem; line-height:1.6; margin-bottom:16px; }
+  .class-meta{ display:flex; gap:14px; font-size:0.78rem; color:var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonial-wrap{
+    position:relative; max-width:760px; margin:0 auto;
+    background:var(--white); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:56px 60px; min-height:280px;
+    display:flex; align-items:center;
+  }
+  .testimonial-slide{
+    position:absolute; inset:0; padding:56px 60px;
+    display:flex; flex-direction:column; justify-content:center;
+    opacity:0; transform:translateX(24px);
+    transition:opacity .6s ease, transform .6s ease;
+    pointer-events:none;
+  }
+  .testimonial-slide.active{ opacity:1; transform:translateX(0); pointer-events:auto; position:relative; }
+  .quote-mark{ width:34px; height:34px; color:var(--gold); margin-bottom:18px; }
+  .testimonial-slide p.quote{ font-family:'Fraunces',serif; font-size:1.25rem; font-style:italic; color:var(--navy-deep); line-height:1.55; margin-bottom:24px; }
+  .testimonial-person{ display:flex; align-items:center; gap:14px; }
+  .avatar-ring{
+    width:48px; height:48px; border-radius:50%; border:2px solid var(--navy);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif; font-weight:600; color:var(--navy); background:var(--powder-light);
+    flex-shrink:0;
+  }
+  .testimonial-person strong{ display:block; font-size:0.95rem; color:var(--navy-deep); }
+  .testimonial-person span{ font-size:0.8rem; color:var(--text-soft); }
+  .testimonial-dots{ display:flex; justify-content:center; gap:9px; margin-top:34px; }
+  .dot{ width:9px; height:9px; border-radius:50%; background:var(--powder); cursor:pointer; transition:all .3s ease; }
+  .dot.active{ background:var(--gold-deep); width:26px; border-radius:100px; }
+
+  /* ---------- GALLERY ---------- */
+  .gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .gallery-item{
+    aspect-ratio:1/1; border-radius:16px;
+    background:repeating-linear-gradient(135deg, var(--powder-light), var(--powder-light) 12px, #E4EFF9 12px, #E4EFF9 24px);
+    border:2px dashed var(--powder);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+    color:var(--navy); opacity:.7;
+    position:relative; overflow:hidden;
+  }
+  .gallery-item img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center;
+  }
+  .gallery-item svg{ width:26px; height:26px; }
+  .gallery-item span{ font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{ max-width:760px; margin:0 auto; }
+  .faq-item{
+    background:var(--white); border-radius:16px; margin-bottom:14px;
+    box-shadow:0 8px 24px -16px rgba(27,42,94,0.25);
+    overflow:hidden;
+  }
+  .faq-q{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 28px; cursor:pointer; font-weight:600; color:var(--navy-deep);
+    font-size:1rem;
+  }
+  .faq-icon{ width:22px; height:22px; flex-shrink:0; color:var(--gold-deep); transition:transform .35s ease; }
+  .faq-item.open .faq-icon{ transform:rotate(135deg); }
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height .4s ease;
+    padding:0 28px;
+  }
+  .faq-a p{ color:var(--text-soft); padding-bottom:22px; line-height:1.6; font-size:0.94rem; }
+  .faq-item.open .faq-a{ max-height:220px; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-section{ background:var(--powder-light); }
+  .contact-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:flex-start; }
+  .contact-info h2{ margin-bottom:18px; }
+  .contact-info p{ color:var(--text-soft); margin-bottom:30px; line-height:1.7; }
+  .contact-item{
+    display:flex; align-items:center; gap:16px; margin-bottom:20px;
+  }
+  .contact-item .icon-circle{
+    width:48px; height:48px; border-radius:50%; background:var(--white);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    box-shadow:0 8px 20px -12px rgba(27,42,94,0.3);
+  }
+  .contact-item .icon-circle svg{ width:22px; height:22px; color:var(--navy); }
+  .contact-item strong{ display:block; font-size:0.95rem; color:var(--navy-deep); }
+  .contact-item span, .contact-item a{ font-size:0.88rem; color:var(--text-soft); }
+
+  .form-card{
+    background:var(--white); border-radius:var(--radius); padding:40px;
+    box-shadow:var(--shadow);
+  }
+  .form-tabs{ display:flex; gap:10px; margin-bottom:26px; background:var(--cream); padding:6px; border-radius:100px; }
+  .form-tab{
+    flex:1; text-align:center; padding:10px; border-radius:100px; font-size:0.85rem; font-weight:700;
+    cursor:pointer; color:var(--text-soft); transition:all .3s ease;
+  }
+  .form-tab.active{ background:var(--navy-deep); color:var(--cream); }
+  .form-group{ margin-bottom:16px; }
+  .form-group label{ display:block; font-size:0.82rem; font-weight:600; color:var(--navy-deep); margin-bottom:7px; }
+  .form-group input, .form-group textarea, .form-group select{
+    width:100%; border:1.5px solid #DCE5F0; border-radius:12px; padding:13px 16px;
+    font-family:'Inter',sans-serif; font-size:0.92rem; color:var(--text); background:var(--cream);
+    transition:border-color .3s ease;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus{
+    outline:none; border-color:var(--gold);
+  }
+  .form-group textarea{ resize:vertical; min-height:90px; }
+  .form-panel{ display:none; }
+  .form-panel.active{ display:block; }
+  .form-card .btn{ width:100%; margin-top:6px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background:var(--navy-deep); color:rgba(250,246,239,0.7); padding:60px 0 26px; }
+  .footer-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px; margin-bottom:40px; }
+  .footer-brand{ display:flex; align-items:center; gap:12px; color:var(--cream); font-family:'Fraunces',serif; font-size:1.15rem; font-weight:600; margin-bottom:14px; }
+  .footer-brand .brand-mark{ background:rgba(250,246,239,0.08); border-color:var(--gold); }
+  .footer-col h5{ color:var(--cream); font-size:0.85rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:16px; }
+  .footer-col a{ display:block; font-size:0.88rem; margin-bottom:10px; color:rgba(250,246,239,0.65); transition:color .3s ease; }
+  .footer-col a:hover{ color:var(--gold); }
+  .footer-socials{ display:flex; gap:12px; margin-top:6px; }
+  .footer-socials a{
+    width:38px; height:38px; border-radius:50%; border:1px solid rgba(250,246,239,0.25);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .footer-socials svg{ width:16px; height:16px; }
+  .footer-bottom{ border-top:1px solid rgba(250,246,239,0.12); padding-top:22px; text-align:center; font-size:0.8rem; }
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float{
+    position:fixed; bottom:26px; right:26px; z-index:900;
+    width:62px; height:62px; border-radius:50%;
+    background:var(--navy); border:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 14px 34px -10px rgba(27,42,94,0.55);
+    cursor:pointer;
+  }
+  .wa-float svg{ width:28px; height:28px; color:var(--gold); }
+  .wa-float::before{
+    content:""; position:absolute; inset:-6px; border-radius:50%;
+    border:2px solid var(--gold); opacity:.6;
+    animation:pulse 2.2s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{ transform:scale(0.9); opacity:.7; }
+    70%{ transform:scale(1.5); opacity:0; }
+    100%{ opacity:0; }
+  }
+  .wa-tooltip{
+    position:absolute; right:74px; top:50%; transform:translateY(-50%);
+    background:var(--navy-deep); color:var(--cream); font-size:0.78rem; font-weight:600;
+    padding:9px 14px; border-radius:8px; white-space:nowrap;
+    opacity:0; pointer-events:none; transition:opacity .3s ease;
+  }
+  .wa-float:hover .wa-tooltip{ opacity:1; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 980px){
+    .nav-links, .nav-cta .btn-outline-dark{ display:none; }
+    .burger{ display:flex; }
+    .hero{ flex-direction:column; text-align:center; padding-top:150px; gap:50px; }
+    .hero-text{ max-width:100%; }
+    .hero-text p{ margin-left:auto; margin-right:auto; }
+    .hero-ctas{ justify-content:center; }
+    .hero-visual{ width:300px; height:300px; }
+    .about-wrap{ flex-direction:column; }
+    .about-visual{ margin:0 auto; }
+    .products-grid{ grid-template-columns:repeat(2,1fr); }
+    .classes-grid{ grid-template-columns:1fr; }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); }
+    .contact-wrap{ grid-template-columns:1fr; }
+    .testimonial-wrap, .testimonial-slide{ padding:44px 28px; }
+  }
+  @media (max-width: 560px){
+    .products-grid{ grid-template-columns:1fr; }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); }
+    .section{ padding:70px 0; }
+    .wa-float{ width:54px; height:54px; bottom:18px; right:18px; }
+    .wa-tooltip{ display:none; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+  }
+</style>
+</head>
+<body>
+<!--
+  ADDING PHOTOS — quick guide:
+  Every photo slot (product cards, gallery, her portrait) is now sized to automatically
+  crop and center ANY image you drop in, no matter its original size or shape.
+
+  To add a photo: inside the relevant placeholder div (e.g. class="product-photo",
+  "gallery-item", or "about-frame-inner"), delete the <svg> and <span> placeholder
+  content and replace it with:
+      <img src="your-image-file.jpg" alt="Description of the photo">
+  That's it — it will fill the frame perfectly.
+-->
+
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <nav>
+    <a href="#home" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 12c0-1 3-2 8-2s8 1 8 2"/><path d="M5 12l1 6h12l1-6"/><path d="M8 10c1-2 2-3 2-5m4 5c1-2 2-3 2-5m-4 5c0-2 0-3 0-5"/></svg>
+      </span>
+      Deecrown Kitchen
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Menu</a></li>
+      <li><a href="#classes">Classes</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-outline-dark">Contact</a>
+      <a href="#contact" class="btn btn-primary">Order Now</a>
+    </div>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </nav>
+</header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#products">Menu</a>
+  <a href="#classes">Classes</a>
+  <a href="#testimonials">Reviews</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="btn btn-primary">Order Now</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-text reveal">
+    <span class="eyebrow">Lagos-based bakery &amp; teaching kitchen</span>
+    <h1>Where every <em>bite</em> is a delight</h1>
+    <p>Deecrown Kitchen And Confectionery bakes celebration cakes, pastries and small chops by hand — and teaches the next generation of home bakers to do the same.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2l1.5 4M18 2l-1.5 4M4 8h16l-1.5 11a2 2 0 0 1-2 1.8H7.5a2 2 0 0 1-2-1.8L4 8z"/></svg>
+        Order a Bake
+      </a>
+      <a href="#classes" class="btn btn-outline-dark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Book a Class
+      </a>
+    </div>
+  </div>
+  <div class="hero-visual reveal">
+    <div class="ring ring-1"></div>
+    <div class="ring ring-2"></div>
+    <div class="ring ring-3">
+      <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 12c0-1 3-2 8-2s8 1 8 2"/><path d="M5 12l1 6h12l1-6"/>
+        <path d="M8 10c1-2 2-3 2-5m4 5c1-2 2-3 2-5m-4 5c0-2 0-3 0-5"/>
+      </svg>
+    </div>
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg>
+      Freshly baked, every order
+    </div>
+  </div>
+</section>
+
+<div class="scallop-divider"></div>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container about-wrap">
+    <div class="about-visual reveal">
+      <div class="about-frame">
+        <div class="about-frame-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="3.4"/><path d="M6 21c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M9 8h6"/>
+          </svg>
+          <span>Add photo — Her Portrait</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <span class="eyebrow">Meet the baker</span>
+      <h2>Every recipe carries her name</h2>
+      <p>Deecrown Kitchen And Confectionery started in a home kitchen, with one mixing bowl and a lot of patience. Today it's a trusted name for celebration cakes, pastries and small chops across Lagos — built one order, and one happy customer, at a time.</p>
+      <p>Beyond baking, she teaches — running hands-on classes for beginners and aspiring bakers who want to learn the craft properly, from batter to buttercream.</p>
+      <div class="about-stats">
+        <div><strong>5+</strong><span>Years Baking</span></div>
+        <div><strong>200+</strong><span>Happy Clients</span></div>
+        <div><strong>30+</strong><span>Students Trained</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="section" id="products" style="background:var(--white);">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">On the menu</span>
+      <h2>Baked fresh, made to order</h2>
+      <p>A few favourites from the kitchen — every item is baked to order, so flavours and designs can always be customised.</p>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card reveal">
+        <div class="product-photo">
+          <img src="./Assets/Cake.jpeg" alt="Red Velvet Cake">
+        </div>
+        <div class="product-body">
+          <h4>Red Velvet Cake</h4>
+          <p>Rich cocoa sponge, cream cheese frosting, finished with a light dust of crumb.</p>
+          <div class="product-meta"><span class="product-price">From ₦18,00</span><span class="tag">Bestseller</span></div>
+        </div>
+      </div>
+
+      <!-- <div class="product-card reveal">
+        <div class="product-photo">
+          <img src="your-image-filename.jpg" alt="Assorted Cupcakes">
+        </div>
+        <div class="product-body">
+          <h4>Assorted Cupcakes</h4>
+          <p>A colourful box of vanilla, chocolate and red velvet cupcakes, piped to order.</p>
+          <div class="product-meta"><span class="product-price">From ₦6,500 / dozen</span><span class="tag">Popular</span></div>
+        </div>
+      </div> -->
+
+      <div class="product-card reveal">
+        <div class="product-photo">
+          <img src="./Assets/Wedding-cake.jpeg" alt="Wedding Cake">
+        </div>
+        <div class="product-body">
+          <h4>Wedding &amp; Celebration Cakes</h4>
+          <p>Multi-tier custom designs for weddings, anniversaries and milestone birthdays.</p>
+          <div class="product-meta"><span class="product-price">Custom quote</span><span class="tag">Made to order</span></div>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-photo">
+          <img src="./Assets/Meat-pie1.jpeg" alt="Meat Pies">
+        </div>
+        <div class="product-body">
+          <h4>Meat Pies</h4>
+          <p>Flaky golden pastry filled with well-seasoned minced meat and potatoes.</p>
+          <div class="product-meta"><span class="product-price">From ₦800 each</span><span class="tag">Party favourite</span></div>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-photo">
+          <img src="./Assets/Small-chops.jpeg" alt="Small Chops Package">
+        </div>
+        <div class="product-body">
+          <h4>Small Chops Package</h4>
+          <p>Spring rolls, puff puff, samosa and chicken skewers — perfect for events.</p>
+          <div class="product-meta"><span class="product-price">From ₦25,000 / tray</span><span class="tag">Events</span></div>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-photo">
+          <img src="./Assets/Chinchin.jpeg" alt="Crunchy Chin Chin">
+        </div>
+        <div class="product-body">
+          <h4>Crunchy Chin Chin</h4>
+          <p>Lightly sweetened, perfectly crunchy — bagged fresh for snacking or gifting.</p>
+          <div class="product-meta"><span class="product-price">From ₦3,500 / pack</span><span class="tag">Snack</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLASSES ============ -->
+<section class="section classes-section" id="classes">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Learn with Deecrown</span>
+      <h2>Baking classes for every level</h2>
+      <p>Small, hands-on sessions — whether you're baking for the first time or sharpening your skills to start a business of your own.</p>
+    </div>
+    <div class="classes-grid">
+
+      <div class="class-card reveal">
+        <div class="class-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 12c0-1 3-2 8-2s8 1 8 2"/><path d="M5 12l1 6h12l1-6"/></svg>
+        </div>
+        <h4>Cake Baking Basics</h4>
+        <p>Learn batter, baking times and levelling — the foundation every good cake is built on.</p>
+        <div class="class-meta"><span>Beginner</span><span>4 Sessions</span></div>
+      </div>
+
+      <div class="class-card reveal">
+        <div class="class-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 2c3 2 3 4 3 6a3 3 0 0 1-6 0c0-2 0-4 3-6z"/><path d="M6 22c0-5 3-8 6-8s6 3 6 8"/></svg>
+        </div>
+        <h4>Piping &amp; Icing Techniques</h4>
+        <p>Buttercream, fondant and piping work to take your decorating from tidy to stunning.</p>
+        <div class="class-meta"><span>Intermediate</span><span>3 Sessions</span></div>
+      </div>
+
+      <div class="class-card reveal">
+        <div class="class-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="14" height="12" rx="2"/><path d="M8 7V4h8v3"/></svg>
+        </div>
+        <h4>Cupcake Decorating</h4>
+        <p>Master swirls, rosettes and topping combinations that make cupcakes stand out.</p>
+        <div class="class-meta"><span>All levels</span><span>2 Sessions</span></div>
+      </div>
+
+      <div class="class-card reveal">
+        <div class="class-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8c4-3 12-3 16 0"/><path d="M4 8l1.5 10h13L20 8"/></svg>
+        </div>
+        <h4>Pastries &amp; Small Chops</h4>
+        <p>Meat pies, samosas and party snacks — great for anyone eyeing a small catering business.</p>
+        <div class="class-meta"><span>Beginner</span><span>3 Sessions</span></div>
+      </div>
+
+    </div>
+    <div style="text-align:center; margin-top:44px;">
+      <a href="#contact" class="btn btn-primary">Reserve Your Spot</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Kind words</span>
+      <h2>What her customers &amp; students say</h2>
+    </div>
+    <div class="testimonial-wrap reveal" id="testimonialWrap">
+
+      <div class="testimonial-slide active">
+        <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7C5.5 7 3 9.7 3 13.5S5.5 20 9 20v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3v-3.8H9zm10 0c-3.5 0-6 2.7-6 6.5s2.5 6.5 6 6.5v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3V7H19z"/></svg>
+        <p class="quote">I ordered a birthday cake for my daughter last minute and Deecrown still made it look like we'd planned it for months. The red velvet was so soft — everyone asked for the recipe.</p>
+        <div class="testimonial-person"><div class="avatar-ring">AO</div><div><strong>Amaka O.</strong><span>Birthday Cake Client</span></div></div>
+      </div>
+
+      <div class="testimonial-slide">
+        <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7C5.5 7 3 9.7 3 13.5S5.5 20 9 20v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3v-3.8H9zm10 0c-3.5 0-6 2.7-6 6.5s2.5 6.5 6 6.5v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3V7H19z"/></svg>
+        <p class="quote">I took her cupcake decorating class as a total beginner. I left with real skills and a stomach full of buttercream. Worth every naira.</p>
+        <div class="testimonial-person"><div class="avatar-ring">TA</div><div><strong>Tunde A.</strong><span>Class Student</span></div></div>
+      </div>
+
+      <div class="testimonial-slide">
+        <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7C5.5 7 3 9.7 3 13.5S5.5 20 9 20v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3v-3.8H9zm10 0c-3.5 0-6 2.7-6 6.5s2.5 6.5 6 6.5v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3V7H19z"/></svg>
+        <p class="quote">Our wedding cake was exactly what we pictured — actually better. Deecrown Kitchen listened carefully to every detail we mentioned.</p>
+        <div class="testimonial-person"><div class="avatar-ring">CS</div><div><strong>Chidinma &amp; Segun</strong><span>Wedding Clients</span></div></div>
+      </div>
+
+      <div class="testimonial-slide">
+        <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7C5.5 7 3 9.7 3 13.5S5.5 20 9 20v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3v-3.8H9zm10 0c-3.5 0-6 2.7-6 6.5s2.5 6.5 6 6.5v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3V7H19z"/></svg>
+        <p class="quote">The small chops for our office party disappeared in twenty minutes. I've already placed a second order for next month.</p>
+        <div class="testimonial-person"><div class="avatar-ring">BE</div><div><strong>Blessing E.</strong><span>Event Client</span></div></div>
+      </div>
+
+      <div class="testimonial-slide">
+        <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7C5.5 7 3 9.7 3 13.5S5.5 20 9 20v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3v-3.8H9zm10 0c-3.5 0-6 2.7-6 6.5s2.5 6.5 6 6.5v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3V7H19z"/></svg>
+        <p class="quote">Patient, encouraging and honestly a great teacher. I now bake for my whole family because of her class.</p>
+        <div class="testimonial-person"><div class="avatar-ring">NK</div><div><strong>Ngozi K.</strong><span>Class Student</span></div></div>
+      </div>
+
+      <div class="testimonial-slide">
+        <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7C5.5 7 3 9.7 3 13.5S5.5 20 9 20v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3v-3.8H9zm10 0c-3.5 0-6 2.7-6 6.5s2.5 6.5 6 6.5v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3V7H19z"/></svg>
+        <p class="quote">Fresh, beautifully packaged and delivered right on time. This is our go-to bakery for every celebration now.</p>
+        <div class="testimonial-person"><div class="avatar-ring">EN</div><div><strong>Emeka N.</strong><span>Repeat Customer</span></div></div>
+      </div>
+
+      <div class="testimonial-slide">
+        <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7C5.5 7 3 9.7 3 13.5S5.5 20 9 20v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3v-3.8H9zm10 0c-3.5 0-6 2.7-6 6.5s2.5 6.5 6 6.5v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3V7H19z"/></svg>
+        <p class="quote">I've tried a lot of bakeries around Lagos. Deecrown's chin chin is genuinely the best I've had.</p>
+        <div class="testimonial-person"><div class="avatar-ring">FM</div><div><strong>Farida M.</strong><span>Loyal Customer</span></div></div>
+      </div>
+
+    </div>
+    <div class="testimonial-dots" id="testimonialDots"></div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section" style="background:var(--white);" id="gallery">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Behind the crown</span>
+      <h2>A peek into the kitchen</h2>
+    </div>
+    <!-- <div class="gallery-grid">
+      <div class="gallery-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-9 9"/></svg><span>Add photo</span></div>
+      <div class="gallery-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-9 9"/></svg><span>Add photo</span></div>
+      <div class="gallery-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-9 9"/></svg><span>Add photo</span></div>
+      <div class="gallery-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-9 9"/></svg><span>Add photo</span></div>
+    </div> -->
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq" style="background:var(--cream);">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Good to know</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <div class="faq-q">How do I place an order?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <div class="faq-a"><p>Send a message through the order form below or reach out directly on WhatsApp with your preferred flavour, size and date needed.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">How far in advance should I order a custom cake?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <div class="faq-a"><p>At least 3–5 days for standard cakes, and 2–3 weeks for wedding or multi-tier celebration cakes to allow time for design and testing.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Do you deliver, and what areas do you cover?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <div class="faq-a"><p>Yes — delivery is available across Lagos, with a small fee based on distance. Pickup is also available from the kitchen.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Can I request a custom design or flavour?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <div class="faq-a"><p>Absolutely — most cakes are made to order. Share your theme, colours or flavour preferences and it'll be built around your request.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">How do the baking classes work?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <div class="faq-a"><p>Classes run in small hands-on groups at the kitchen. Each session covers a specific skill, with all ingredients and equipment provided.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Do you offer private or one-on-one sessions?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <div class="faq-a"><p>Yes, private sessions can be arranged for individuals or small groups — just mention it when booking a class.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">What payment methods do you accept?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <div class="faq-a"><p>Bank transfer is preferred, with a deposit required to confirm custom cake and class bookings.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact-section" id="contact">
+  <div class="container contact-wrap">
+    <div class="contact-info reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Let's bake something special</h2>
+      <p>Whether it's a celebration cake or a spot in the next class, reach out and Deecrown Kitchen will get back to you as soon as possible.</p>
+
+      <div class="contact-item">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.1-1.1a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg></div>
+        <div><strong>Call</strong><a href="tel:+2348105074632">0810 507 4632</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.1-.7.1-.7 1-.9 1.1-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.5a2 2 0 0 0 .3-.5.5.5 0 0 0 0-.5c-.1-.1-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.6 3.6 0 0 0 6 9.6a6.3 6.3 0 0 0 1.3 3.3 14.5 14.5 0 0 0 5.6 4.9c.8.3 1.4.6 1.9.7a4.6 4.6 0 0 0 2 .1 3.3 3.3 0 0 0 2.2-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.1-.3-.2-.7-.4z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg></div>
+        <div><strong>WhatsApp</strong><a href="https://wa.me/2349067368272" target="_blank" rel="noopener">0906 736 8272</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1"/></svg></div>
+        <div><strong>Instagram</strong><a href="https://instagram.com/deecrown_kitchen" target="_blank" rel="noopener">@deecrown_kitchen</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><strong>Location</strong><span>Oba-Ile, Akure, Nigeria — delivery &amp; pickup available</span></div>
+      </div>
+    </div>
+
+    <div class="form-card reveal">
+      <div class="form-tabs">
+        <div class="form-tab active" data-tab="order">Order a Bake</div>
+        <div class="form-tab" data-tab="class">Book a Class</div>
+      </div>
+
+      <form class="form-panel active" id="orderPanel" onsubmit="return false;">
+        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name" required></div>
+        <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" placeholder="080..." required></div>
+        <div class="form-group"><label>What are you ordering?</label>
+          <select><option>Celebration Cake</option><option>Cupcakes</option><option>Wedding Cake</option><option>Small Chops / Pastries</option><option>Chin Chin</option><option>Other</option></select>
+        </div>
+        <div class="form-group"><label>Date needed</label><input type="date"></div>
+        <div class="form-group"><label>Details</label><textarea placeholder="Flavour, size, design ideas, delivery address..."></textarea></div>
+        <button class="btn btn-primary" type="submit">Send Order Request</button>
+      </form>
+
+      <form class="form-panel" id="classPanel" onsubmit="return false;">
+        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name" required></div>
+        <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" placeholder="080..." required></div>
+        <div class="form-group"><label>Which class?</label>
+          <select><option>Cake Baking Basics</option><option>Piping &amp; Icing Techniques</option><option>Cupcake Decorating</option><option>Pastries &amp; Small Chops</option></select>
+        </div>
+        <div class="form-group"><label>Preferred date</label><input type="date"></div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Any experience level, questions, or private session request..."></textarea></div>
+        <button class="btn btn-primary" type="submit">Send Booking Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <span class="brand-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 12c0-1 3-2 8-2s8 1 8 2"/><path d="M5 12l1 6h12l1-6"/></svg>
+          </span>
+          Deecrown Kitchen
+        </div>
+        <p style="max-width:260px; font-size:0.88rem;">Where every bite is a delight — cakes, pastries and baking classes across Lagos.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/deecrown_kitchen" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1"/></svg></a>
+          <a href="https://wa.me/2349067368272" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="1.6"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="#about">About</a><a href="#products">Menu</a><a href="#classes">Classes</a><a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="tel:+2348105074632">0810 507 4632</a>
+        <a href="https://wa.me/2349067368272" target="_blank" rel="noopener">0906 736 8272</a>
+        <a href="#contact">Send a message</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Deecrown Kitchen And Confectionery. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a class="wa-float" href="https://wa.me/2349067368272" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="wa-tooltip">Chat with us on WhatsApp</span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.1-.7.1-.7 1-.9 1.1-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.5a2 2 0 0 0 .3-.5.5.5 0 0 0 0-.5c-.1-.1-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.6 3.6 0 0 0 6 9.6a6.3 6.3 0 0 0 1.3 3.3 14.5 14.5 0 0 0 5.6 4.9c.8.3 1.4.6 1.9.7a4.6 4.6 0 0 0 2 .1 3.3 3.3 0 0 0 2.2-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.1-.3-.2-.7-.4z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+<script>
+  // Header scroll shadow
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 12);
+  });
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('menuOverlay');
+  function closeMenu(){ burger.classList.remove('open'); mobileMenu.classList.remove('open'); overlay.classList.remove('open'); }
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    overlay.classList.toggle('open');
+  });
+  overlay.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Testimonial carousel
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const dotsWrap = document.getElementById('testimonialDots');
+  let current = 0;
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goToSlide(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = document.querySelectorAll('.dot');
+  function goToSlide(i){
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = i;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  function nextSlide(){ goToSlide((current + 1) % slides.length); }
+  let autoplay = setInterval(nextSlide, 3000);
+  const testimonialWrap = document.getElementById('testimonialWrap');
+  testimonialWrap.addEventListener('mouseenter', () => clearInterval(autoplay));
+  testimonialWrap.addEventListener('mouseleave', () => { autoplay = setInterval(nextSlide, 3000); });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Contact form tabs
+  document.querySelectorAll('.form-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.form-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab + 'Panel').classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
