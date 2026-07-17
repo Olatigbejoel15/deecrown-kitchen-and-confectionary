@@ -762,7 +762,7 @@
       <div class="testimonial-slide">
         <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7C5.5 7 3 9.7 3 13.5S5.5 20 9 20v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3v-3.8H9zm10 0c-3.5 0-6 2.7-6 6.5s2.5 6.5 6 6.5v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3V7H19z"/></svg>
         <p class="quote">I took her cupcake decorating class as a total beginner. I left with real skills and a stomach full of buttercream. Worth every naira.</p>
-        <div class="testimonial-person"><div class="avatar-ring">TA</div><div><strong>Tunde A.</strong><span>Class Student</span></div></div>
+        <div class="testimonial-person"><div class="avatar-ring">AC</div><div><strong>Ayoyemi C.</strong><span>Class Student</span></div></div>
       </div>
 
       <div class="testimonial-slide">
@@ -774,7 +774,7 @@
       <div class="testimonial-slide">
         <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7C5.5 7 3 9.7 3 13.5S5.5 20 9 20v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3v-3.8H9zm10 0c-3.5 0-6 2.7-6 6.5s2.5 6.5 6 6.5v-3.2c-1.7 0-3-1.3-3-3 0-1.6 1.2-2.9 2.7-3V7H19z"/></svg>
         <p class="quote">The small chops for our office party disappeared in twenty minutes. I've already placed a second order for next month.</p>
-        <div class="testimonial-person"><div class="avatar-ring">BE</div><div><strong>Blessing E.</strong><span>Event Client</span></div></div>
+        <div class="testimonial-person"><div class="avatar-ring">MI</div><div><strong>Mojisola I.</strong><span>Event Client</span></div></div>
       </div>
 
       <div class="testimonial-slide">
@@ -843,7 +843,7 @@
         <div class="faq-q">Do you deliver, and what areas do you cover?
           <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
         </div>
-        <div class="faq-a"><p>Yes — delivery is available across Ondo, with a small fee based on distance. Pickup is also available from the kitchen.</p></div>
+        <div class="faq-a"><p>Yes — delivery is available across Ondo State, with a small fee based on distance. Pickup is also available from the kitchen.</p></div>
       </div>
 
       <div class="faq-item reveal">
@@ -1019,10 +1019,10 @@
     dots[current].classList.add('active');
   }
   function nextSlide(){ goToSlide((current + 1) % slides.length); }
-  let autoplay = setInterval(nextSlide, 5000);
+  let autoplay = setInterval(nextSlide, 7000);
   const testimonialWrap = document.getElementById('testimonialWrap');
   testimonialWrap.addEventListener('mouseenter', () => clearInterval(autoplay));
-  testimonialWrap.addEventListener('mouseleave', () => { autoplay = setInterval(nextSlide, 5000); });
+  testimonialWrap.addEventListener('mouseleave', () => { autoplay = setInterval(nextSlide, 7000); });
 
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
