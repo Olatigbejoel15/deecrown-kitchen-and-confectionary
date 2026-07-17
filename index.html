@@ -1019,10 +1019,10 @@
     dots[current].classList.add('active');
   }
   function nextSlide(){ goToSlide((current + 1) % slides.length); }
-  let autoplay = setInterval(nextSlide, 3000);
+  let autoplay = setInterval(nextSlide, 5000);
   const testimonialWrap = document.getElementById('testimonialWrap');
   testimonialWrap.addEventListener('mouseenter', () => clearInterval(autoplay));
-  testimonialWrap.addEventListener('mouseleave', () => { autoplay = setInterval(nextSlide, 3000); });
+  testimonialWrap.addEventListener('mouseleave', () => { autoplay = setInterval(nextSlide, 5000); });
 
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
